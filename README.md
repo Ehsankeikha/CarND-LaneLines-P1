@@ -1,2 +1,2 @@
-# SDC-ND
-Self Driving Car Project
+# CarND-LaneLines-P1
+Self Driving Car Project Lane Line P1
