@@ -17,7 +17,7 @@
 
 ### 1. Describe your pipeline. 
 
-In this part, I will cover in detail the different steps needed to create my pipeline, which will enable me to identify and classify lane lines. My pipeline consisted of 5 steps:
+In this part, I will cover in detail the different steps needed to create my pipeline, which will enable me to identify and classify lane lines. My pipeline consisted of 7 steps:
 
 
 0- load the image:
@@ -51,9 +51,9 @@ In order to draw a single line on the left and right lanes, I modified the funct
 
 * Calculated slope and center of each line. Then based on the slope, sort it into right or left lane line
 
-* To Smoothing the result remove the outlier lines based on slope and location of the lines.
+* To Smoothing the result remove the outlier lines based on slope and location of the lines. 
 
-* use the memory of previous frames to improve the lane detection. Since a video is a sequence of frames. We can therefore use the information from previous frames to smoothen the lines that we trace on the road and take corrective steps if at frame t our computed lines differ disproportionately from the mean of line slopes and intercepts we computed from frames [0, t-1]. We therefore need to impart the concept of memory into our pipeline. I use a standard Python global variable to store the last N (I set it at 60 for now) computed line coefficients.
+* Use the memory of previous frames to improve the lane detection. Since a video is a sequence of frames. We can therefore use the information from previous frames to smoothen the lines that we trace on the road and take corrective steps if at frame t our computed lines differ disproportionately from the mean of line slopes and intercepts we computed from frames [0, t-1]. We therefore need to impart the concept of memory into our pipeline. I use a standard Python global variable to store the last N (I set it at 60 for now) computed line coefficients.
 
 * The last step is to polynomial to the all points. Because of the curvature of the lanes a straight line formed by a simple polynomial of degree 1 (i.e. y = Ax¹ + b) would not be enough.
 
